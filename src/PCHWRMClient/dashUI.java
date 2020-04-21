@@ -12,7 +12,7 @@ import javafx.scene.text.Font;
 
 public class dashUI extends VBox {
 
-    TextField serverIPAddressTextField, dataRefreshIntervalTextField, serverPortTextField, CPULoadNameTextField, GPULoadNameTextField, CPUTemperatureNameTextField, GPUTemperatureNameTextField, CPUFanNameTextField, GPUFanNameTextField, TotalVRAMNameTextField, UsedVRAMNameTextField, UsedRAMNameTextField, AvailableRAMNameTextField;
+    TextField serverIPAddressTextField, dataRefreshIntervalTextField, serverPortTextField, CPULoadNameTextField, GPULoadNameTextField, CPUTemperatureNameTextField, GPUTemperatureNameTextField, CPUFanNameTextField, CASEFanNameTextField, TotalVRAMNameTextField, UsedVRAMNameTextField, UsedRAMNameTextField, AvailableRAMNameTextField;
 
     Button connectDisconnectServerButton, updateValuesButton, donateButton, minimizeToSystemTrayButton, downloadOpenHardwareMonitorButton;
 
@@ -91,7 +91,7 @@ public class dashUI extends VBox {
         GPUTemperatureNameHBox.setSpacing(10);
         GPUTemperatureNameHBox.setAlignment(Pos.CENTER_LEFT);
 
-        Label CPUFanNameLabel = new Label("CPU FAN (RPM)");
+        Label CPUFanNameLabel = new Label("CPU/PUMP FAN (RPM)");
         CPUFanNameTextField = new TextField();
         Region r4 = new Region();
         HBox.setHgrow(r4,Priority.ALWAYS);
@@ -99,13 +99,13 @@ public class dashUI extends VBox {
         CPUFanNameHBox.setSpacing(10);
         CPUFanNameHBox.setAlignment(Pos.CENTER_LEFT);
 
-        Label GPUFanNameLabel = new Label("GPU FAN (RPM)");
-        GPUFanNameTextField = new TextField();
+        Label CASEFanNameLabel = new Label("CASE FAN (RPM)");
+        CASEFanNameTextField = new TextField();
         Region r5 = new Region();
         HBox.setHgrow(r5,Priority.ALWAYS);
-        HBox GPUFanNameHBox = new HBox(GPUFanNameLabel, r5, GPUFanNameTextField);
-        GPUFanNameHBox.setSpacing(10);
-        GPUFanNameHBox.setAlignment(Pos.CENTER_LEFT);
+        HBox CASEFanNameHBox = new HBox(CASEFanNameLabel, r5, CASEFanNameTextField);
+        CASEFanNameHBox.setSpacing(10);
+        CASEFanNameHBox.setAlignment(Pos.CENTER_LEFT);
 
         Label TotalVRAMNameLabel = new Label("Total VRAM (MB)");
         TotalVRAMNameTextField = new TextField();
@@ -168,7 +168,7 @@ public class dashUI extends VBox {
 
         setSpacing(15);
 
-        getChildren().addAll(generalSettingsHeadingLabel, refreshHBox, serverConnectivityHeadingLabel, ipHBox, portHBox, OpenHardwareMonitorHeadingLabel, CPULoadNameHBox, CPUFanNameHBox, GPULoadNameHBox, GPUFanNameHBox, GPUTemperatureNameHBox, CPUTemperatureNameHBox, TotalVRAMNameHBox, UsedVRAMNameHBox, AvailableRAMNameHBox, UsedRAMNameHBox, buttonBar1, buttonBar2, buttonBar3);
+        getChildren().addAll(generalSettingsHeadingLabel, refreshHBox, serverConnectivityHeadingLabel, ipHBox, portHBox, OpenHardwareMonitorHeadingLabel, CPULoadNameHBox, CPUFanNameHBox, GPULoadNameHBox, CASEFanNameHBox, GPUTemperatureNameHBox, CPUTemperatureNameHBox, TotalVRAMNameHBox, UsedVRAMNameHBox, AvailableRAMNameHBox, UsedRAMNameHBox, buttonBar1, buttonBar2, buttonBar3);
     }
 
     public void setTextFieldDisableStatus(boolean isDisable)
@@ -181,7 +181,7 @@ public class dashUI extends VBox {
         CPUTemperatureNameTextField.setDisable(isDisable);
         GPUTemperatureNameTextField.setDisable(isDisable);
         CPUFanNameTextField.setDisable(isDisable);
-        GPUFanNameTextField.setDisable(isDisable);
+        CASEFanNameTextField.setDisable(isDisable);
         TotalVRAMNameTextField.setDisable(isDisable);
         UsedVRAMNameTextField.setDisable(isDisable);
         UsedRAMNameTextField.setDisable(isDisable);
