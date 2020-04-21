@@ -65,7 +65,7 @@ public class dash extends dashUI{
             updateConfig("CPU_LOAD_NAME",CPULoadNameTextField.getText());
             updateConfig("GPU_LOAD_NAME",GPULoadNameTextField.getText());
             updateConfig("CPU_FAN_NAME",CPUFanNameTextField.getText());
-            updateConfig("GPU_FAN_NAME",GPUFanNameTextField.getText());
+            updateConfig("CASE_FAN_NAME",CASEFanNameTextField.getText());
             updateConfig("CPU_TEMPERATURE_NAME",CPUTemperatureNameTextField.getText());
             updateConfig("GPU_TEMPERATURE_NAME",GPUTemperatureNameTextField.getText());
             updateConfig("GPU_TOTAL_VRAM_NAME",TotalVRAMNameTextField.getText());
@@ -175,7 +175,7 @@ public class dash extends dashUI{
                 config.get("CPU_LOAD_NAME")+"::"+
                 config.get("GPU_LOAD_NAME")+"::"+
                 config.get("CPU_FAN_NAME")+"::"+
-                config.get("GPU_FAN_NAME")+"::"+
+                config.get("CASE_FAN_NAME")+"::"+
                 config.get("CPU_TEMPERATURE_NAME")+"::"+
                 config.get("GPU_TEMPERATURE_NAME")+"::"+
                 config.get("GPU_TOTAL_VRAM_NAME")+"::"+
@@ -199,7 +199,7 @@ public class dash extends dashUI{
                 config.put("CPU_LOAD_NAME",configArray[2]);
                 config.put("GPU_LOAD_NAME",configArray[3]);
                 config.put("CPU_FAN_NAME",configArray[4]);
-                config.put("GPU_FAN_NAME",configArray[5]);
+                config.put("CASE_FAN_NAME",configArray[5]);
                 config.put("CPU_TEMPERATURE_NAME",configArray[6]);
                 config.put("GPU_TEMPERATURE_NAME",configArray[7]);
                 config.put("GPU_TOTAL_VRAM_NAME",configArray[8]);
@@ -226,7 +226,7 @@ public class dash extends dashUI{
         CPULoadNameTextField.setText(config.get("CPU_LOAD_NAME"));
         GPULoadNameTextField.setText(config.get("GPU_LOAD_NAME"));
         CPUFanNameTextField.setText(config.get("CPU_FAN_NAME"));
-        GPUFanNameTextField.setText(config.get("GPU_FAN_NAME"));
+        CASEFanNameTextField.setText(config.get("CASE_FAN_NAME"));
         CPUTemperatureNameTextField.setText(config.get("CPU_TEMPERATURE_NAME"));
         GPUTemperatureNameTextField.setText(config.get("GPU_TEMPERATURE_NAME"));
         TotalVRAMNameTextField.setText(config.get("GPU_TOTAL_VRAM_NAME"));
@@ -329,8 +329,8 @@ public class dash extends dashUI{
                                                         toSend.add("GPU_LOAD<>"+each[2]);
                                                     else if(each[0].equals(CPUFanNameTextField.getText()) && each[1].equals("Fan"))
                                                         toSend.add("CPU_FAN<>"+each[2]);
-                                                    else if(each[0].equals(GPUFanNameTextField.getText()) && each[1].equals("Fan"))
-                                                        toSend.add("GPU_FAN<>"+each[2]);
+                                                    else if(each[0].equals(CASEFanNameTextField.getText()) && each[1].equals("Fan"))
+                                                        toSend.add("CASE_FAN<>"+each[2]);
                                                     else if(each[0].equals(CPUTemperatureNameTextField.getText()) && each[1].equals("Temperature"))
                                                         toSend.add("CPU_TEMP<>"+each[2]);
                                                     else if(each[0].equals(GPUTemperatureNameTextField.getText()) && each[1].equals("Temperature"))
@@ -476,10 +476,10 @@ public class dash extends dashUI{
             toReturn += "CPU Fan Name cannot be empty!\n";
         }
 
-        if(GPUFanNameTextField.getText().length() == 0)
+        if(CASEFanNameTextField.getText().length() == 0)
         {
             error = true;
-            toReturn += "GPU Fan Name cannot be empty!\n";
+            toReturn += "CASE Fan Name cannot be empty!\n";
         }
 
         if(TotalVRAMNameTextField.getText().length() == 0)
